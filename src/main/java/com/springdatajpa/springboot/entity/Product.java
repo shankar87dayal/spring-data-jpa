@@ -27,7 +27,7 @@ import java.time.LocalDateTime;
         }
 )
 public class Product {
-    
+
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
