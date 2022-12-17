@@ -89,4 +89,52 @@ class ProductRepositoryTest {
             System.out.println(p.getName());
         });
     }
+
+    @Test
+    void deleteByIdMethod(){
+        Long id = 5L;
+        productRepository.deleteById(id);
+    }
+
+    @Test
+    void deleteMethod(){
+
+        //find an entity by id
+        Long id = 4L;
+        Product product = productRepository.findById(id).get();
+
+        //delete (entity)
+        productRepository.delete(product);
+    }
+
+    @Test
+    void deleteAllMethod(){
+
+        productRepository.deleteAll();
+    }
+
+    @Test
+    void deleteAllUsingIterableMethod(){
+
+        Product product = productRepository.findById(8L).get();
+
+        Product product1 = productRepository.findById(9L).get();
+
+        productRepository.deleteAll(List.of(product, product1));
+    }
+
+    @Test
+    void countMethod(){
+        long count = productRepository.count();
+        System.out.println(count);
+    }
+
+    @Test
+    void existsByIdMethod(){
+
+        Long id = 10L;
+
+        boolean result = productRepository.existsById(id);
+        System.out.println(result);
+    }
 }
