@@ -23,7 +23,7 @@ class ProductRepositoryTest {
         product.setName("Iphone 14 pro max");
         product.setDescription("this the best mobile phone");
         product.setSku("1001ABC");
-        product.setPrice(new BigDecimal(100));
+        product.setPrice(new BigDecimal(1000));
         product.setActive(true);
         product.setImageUrl("product.png");
         //save product
