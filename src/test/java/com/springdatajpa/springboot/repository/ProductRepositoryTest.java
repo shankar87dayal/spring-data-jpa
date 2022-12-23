@@ -62,24 +62,24 @@ class ProductRepositoryTest {
     @Test
     void saveAllMethod(){
         //create product
-        Product product1 = new Product();
-        product1.setName("product1");
-        product1.setDescription("product1 description");
-        product1.setSku("1001ABCD");
-        product1.setPrice(new BigDecimal(200));
-        product1.setActive(true);
-        product1.setImageUrl("product1.png");
+        Product product5 = new Product();
+        product5.setName("product13");
+        product5.setDescription("product13 description");
+        product5.setSku("1241ADR1");
+        product5.setPrice(new BigDecimal(256453));
+        product5.setActive(true);
+        product5.setImageUrl("product13.png");
 
         //create product
-        Product product2 = new Product();
-        product2.setName("product2");
-        product2.setDescription("product2 description");
-        product2.setSku("1001ABCDE");
-        product2.setPrice(new BigDecimal(300));
-        product2.setActive(true);
-        product2.setImageUrl("product2.png");
+        Product product8 = new Product();
+        product8.setName("product14");
+        product8.setDescription("product14 description");
+        product8.setSku("13142AB1PE");
+        product8.setPrice(new BigDecimal(378894));
+        product8.setActive(true);
+        product8.setImageUrl("product14.png");
 
-        productRepository.saveAll(List.of(product1,product2));
+        productRepository.saveAll(List.of(product5,product8));
     }
 
     @Test
