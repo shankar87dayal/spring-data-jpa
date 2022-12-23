@@ -82,4 +82,73 @@ public class PaginationAndSortingTest {
             System.out.println(p);
         });
     }
+
+    @Test
+    void sortingByMultipleFileds(){
+        String sortBy = "name";
+        String sortByDesc = "description";
+        String sortDir = "desc";
+
+        Sort sortByName = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())?
+                Sort.by(sortBy).ascending():Sort.by(sortBy).descending();
+
+        Sort sortByDescription = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())?
+                Sort.by(sortByDesc).ascending():Sort.by(sortByDesc).descending();
+
+        Sort groupBySort = sortByName.and(sortByDescription);
+
+        List<Product> products = productRepository.findAll(groupBySort);
+
+        products.forEach((p) ->{
+            System.out.println(p);
+        });
+    }
+
+
+    @Test
+    void paginatationAndSortingTogether(){
+
+        String sortBy = "price";
+        String sortDir = "desc";
+        int pageNo = 0;
+        int pageSize = 5;
+        //Sort object
+
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())?
+                Sort.by(sortBy).ascending():Sort.by(sortBy).descending();
+
+        //pageable object
+        Pageable pageable = PageRequest.of(pageNo, pageSize, sort);
+        Page<Product> page = productRepository.findAll(pageable);
+        List<Product> products =page.getContent();
+
+        products.forEach((p) ->{
+            System.out.println(p);
+        });
+
+        //total page
+        int totalPage = page.getTotalPages();
+        //total elements
+        long totalElement =page.getTotalElements();
+
+        // number of elements
+        int numberOfElements = page.getNumberOfElements();
+
+        //size
+        int size = page.getSize();
+
+        //last
+        boolean isLast = page.isLast();
+
+        //first
+        boolean isFirst = page.isFirst();
+
+        System.out.println("totalPage -> "+ totalPage);
+        System.out.println("totalElement -> " +totalElement);
+        System.out.println("numberOfElements -> "+ numberOfElements);
+        System.out.println("size -> " + size);
+        System.out.println("isLast -> "+ isLast);
+        System.out.println("isFirst -> "+ isFirst);
+
+    }
 }
