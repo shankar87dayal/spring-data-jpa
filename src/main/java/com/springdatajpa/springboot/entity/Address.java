@@ -17,5 +17,9 @@ public class Address {
     private String country;
     private String zipCode;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Order order;
+
 
 }
