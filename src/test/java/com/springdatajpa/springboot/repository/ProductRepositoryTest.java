@@ -63,21 +63,21 @@ class ProductRepositoryTest {
     void saveAllMethod(){
         //create product
         Product product5 = new Product();
-        product5.setName("product13");
-        product5.setDescription("product13 description");
+        product5.setName("product1");
+        product5.setDescription("product1 description");
         product5.setSku("1241ADR1");
         product5.setPrice(new BigDecimal(256453));
         product5.setActive(true);
-        product5.setImageUrl("product13.png");
+        product5.setImageUrl("product1.png");
 
         //create product
         Product product8 = new Product();
-        product8.setName("product14");
-        product8.setDescription("product14 description");
+        product8.setName("product2");
+        product8.setDescription("product2 description");
         product8.setSku("13142AB1PE");
         product8.setPrice(new BigDecimal(378894));
         product8.setActive(true);
-        product8.setImageUrl("product14.png");
+        product8.setImageUrl("product2 .png");
 
         productRepository.saveAll(List.of(product5,product8));
     }
