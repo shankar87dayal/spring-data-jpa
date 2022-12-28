@@ -38,8 +38,8 @@ public class Order {
 
     //default fetch type for ont to many is LAZY
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "order")
+
     private Set<OderItem> oderItems = new HashSet<>();
 
     public BigDecimal getTotalAmount(){

@@ -56,4 +56,20 @@ public class OneToManyMappingTest {
         orderRepository.save(order);
 
     }
+
+    @Test
+    void fetchOrderMethod(){
+        Order order = orderRepository.findById(1L).get();
+        System.out.println(order.getStatus());
+        System.out.println(order.toString());
+        for (OderItem item : order.getOderItems()){
+            System.out.println(item.getProduct().getName());
+        }
+
+    }
+
+    @Test
+    void deleteOrderMethod(){
+        orderRepository.deleteById(1L);
+    }
 }
